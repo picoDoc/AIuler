@@ -6,9 +6,14 @@
 / There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 / Find the product abc.
 
-st:.z.p;                                                                       / record start time
+st:.z.p;                                                                          / record start time
 f:{[]
-
+  / From a + b + c = 1000 and a^2 + b^2 = c^2, derive: b = 1000*(500-a)/(1000-a)
+  a:1+til 499;
+  b:1000*(500-a)%1000-a;                                                          / compute b for each a
+  valid:where(b=floor b)&a<b;                                                     / b must be integer and a < b
+  a:a valid 0; b:"j"$b valid 0; c:1000-a+b;
+  a*b*c
  };
 
 r:f[];

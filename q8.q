@@ -9,7 +9,8 @@ d:"73167176531330624919225119674426574742355349194934969835203127745063262395783
 
 st:.z.p;                                                                       / record start time
 f:{[]
-
+  digits:"J"$'d;                                                                  / convert to integers
+  max prd each digits(til 988)+\:til 13                                           / sliding window products
  };
 
 r:f[];

@@ -6,9 +6,10 @@
 / Hence the difference between the sum of the squares and the square of the sum is 3025 - 385 = 2640.
 / Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 
-st:.z.p;                                                                       / record start time
+st:.z.p;                                                                          / record start time
 f:{[]
-
+  n:1+til 100;
+  (s*s:sum n)-sum n*n                                                             / (sum n)^2 - sum(n^2)
  };
 
 r:f[];

@@ -5,9 +5,10 @@
 / Starting with 1 and 2, the sequence begins: 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 / Find the sum of the even-valued terms that do not exceed four million.
 
-st:.z.p;                                                                       / record start time
+st:.z.p;                                                                          / record start time
 f:{[]
-
+  fibs:first each(4000000>last@){(x 1;sum x)}\1 1;                                / generate fib pairs while < 4M
+  sum fibs where 0=fibs mod 2                                                     / sum even values
  };
 
 r:f[];
